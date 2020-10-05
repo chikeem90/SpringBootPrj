@@ -1,5 +1,7 @@
 package io.chikeem90.springinit;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.ApplicationArguments;
@@ -9,6 +11,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class SampleRunner implements ApplicationRunner {
 
+    private Logger logger = LoggerFactory.getLogger(SampleRunner.class);
+
     @Autowired
     private String hello;
 
@@ -17,10 +21,10 @@ public class SampleRunner implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        System.out.println("============================");
-        System.out.println(hello);
-        System.out.println(properties.getName());
-        System.out.println(properties.getFullName());
-        System.out.println("============================");
+        logger.debug("===============");
+        logger.debug(hello);
+        logger.debug(properties.getName());
+        logger.debug(properties.getFullName());
+        logger.debug("===============");
     }
 }
