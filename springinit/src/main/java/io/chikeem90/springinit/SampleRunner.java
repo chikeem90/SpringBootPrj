@@ -8,15 +8,19 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class SampleRunner implements ApplicationRunner {
+
     @Autowired
-    DoyeonProperties doyeonProperties;
+    private String hello;
+
+    @Autowired
+    private DoyeonProperties properties;
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
         System.out.println("============================");
-        System.out.println(doyeonProperties.getName());
-        System.out.println(doyeonProperties.getAge());
-        System.out.println(doyeonProperties.getSessionTimeout());
+        System.out.println(hello);
+        System.out.println(properties.getName());
+        System.out.println(properties.getFullName());
         System.out.println("============================");
     }
 }
